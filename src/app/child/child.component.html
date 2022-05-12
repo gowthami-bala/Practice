@@ -1,0 +1,49 @@
+<p>child works!</p>
+
+<form [formGroup]="Form">
+
+<div>
+<label >Firstname:</label><br>
+<input type="text"  pInputText formControlName="Firstname" />
+<span *ngIf="Form.controls['Firstname'].invalid && Form.controls['Firstname'].touched && this.Form.controls['Firstname'].errors?.['required'] "
+style="color: red;">required!</span>
+<span style="color: red;" *ngIf="this.Form.controls['Firstname'].errors?.['pattern'] ">Enter Alphabets Only</span>
+</div>
+
+<div>
+<label >Lastname:</label><br>
+<input type="text" pInputText formControlName="Lastname"/>
+<span *ngIf="Form.controls['Lastname'].invalid && Form.controls['Lastname'].touched && this.Form.controls['Lastname'].errors?.['required'] "
+style="color: red;">required!</span>
+<span style="color: red;" *ngIf="this.Form.controls['Lastname'].errors?.['pattern'] ">Enter Alphabets Only</span>
+</div>
+
+
+<div>
+<label >Phone_number:</label><br>
+<input type="text"   pInputText formControlName="Phone_number" />
+<span style="color: red;" *ngIf="Form.controls['Phone_number'].invalid && Form.controls['Phone_number'].touched && this.Form.controls['Phone_number'].errors?.['required'] "
+>required!</span>
+<span style="color: red;" *ngIf="this.Form.controls['Phone_number'].errors?.['pattern'] ">Enter 10 digit number</span>
+</div>
+
+<div>
+    <label >Password:</label><br>
+    <input type="password"   pInputText formControlName="password"  />
+    <span *ngIf="Form.controls['password'].invalid && Form.controls['password'].touched && this.Form.controls['password'].errors?.['required'] "
+style="color: red;">required!</span>
+<!-- <span style="color: red;" *ngIf="this.Form.controls['password'].errors?.['minLength'] ">Atleast 8 characters</span> -->
+</div>
+
+    <div>
+        <label>Confirm password:</label><br>
+        <input type="password"   pInputText formControlName="confirmPassword" />
+        <span *ngIf="Form.controls['confirmPassword'].invalid && Form.controls['confirmPassword'].touched && this.Form.controls['confirmPassword'].errors?.['required'] "
+        style="color: red;">required!</span>
+        </div>
+
+<div>
+<button pButton type="button" label="Click" (click)="onsubmit()"></button>
+<!-- <p-button   type="button"  label="Click" [disabled]="!Form.valid" (click)="onsubmit()"></p-button>  -->
+</div>
+</form>

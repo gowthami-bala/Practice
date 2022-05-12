@@ -1,0 +1,27 @@
+<app-child (child)="senddata($event)"></app-child>
+  
+<p>parent works!</p>
+  <!-- <p>Firstname:{{Fname}}</p>
+  <p>Lastname:{{lName}}</p>
+  <p>Phone_number:{{phone}}</p>   
+  <p>Password:{{password}}</p> -->
+
+ <p-table [value]="list" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Phone_number</th>
+            <th>Password</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" >
+        <tr>
+            <td>{{Fname}}</td>
+             <td>{{lName}}</td> 
+            <td>{{phone}}</td>
+            <td>{{password}}</td>
+        </tr>
+    </ng-template>
+   
+</p-table> 

@@ -1,0 +1,166 @@
+<h1>Employee Details</h1>
+<!-- <div  *ngIf="!show"> -->
+    <p-toast position="top-right"></p-toast>
+    <div class="grid">   
+        <div class="col-8" >
+         
+        <p-table   #dt *ngIf="show" [value]="table"  [columns]="data"  [paginator]="true" [rows]="5"
+        [rowsPerPageOptions]=[4,8,12,16] [resizableColumns]="true" [autoLayout]="true"
+        [filterDelay]="0" [globalFilterFields]="['EmpId','EmpName','EmpDepartment','EmpMobileNo']">
+        <ng-template pTemplate="caption">
+            <div class="table-header" >
+                <div class="txt">
+                    <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+                    <input pInputText type="text" [(ngModel)]="gSearch" (input)="dt.filterGlobal(gSearch, 'contains')" placeholder="Search" style="width:auto" />
+                </div>
+            </div>
+            
+         
+            <div class="ui-helper-clearfix" style="text-align: right">
+                <button type="button" pButton icon="pi pi-file-excel" iconPos="right" label="EXCEL" (click)="exportExcel()"
+                class="ui-button-success"></button>
+            </div>  
+               
+</ng-template>
+
+    <ng-template pTemplate="header" >
+        <tr >
+            <th style="background-color: black; color: white;" *ngFor="let list of data" >{{list.header}}</th>
+            <th style="background-color: black; color: white;">Edit</th>
+            <th style="background-color: black; color: white;">Delete</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-table let-i="rowIndex">
+        <tr style="background-color: lightseagreen;">
+            <td class="td">{{table.EmpId}}</td>
+            <td class="td">{{table.EmpName}}</td>
+            <td class="td">{{table.EmpDepartment}}</td>
+            <td class="td">{{table.EmpMobileNo}}</td>
+            <td><button pButton type="button" (click)="onEdit(table)" label="edit"></button></td>
+            <td><button pButton (click)="ondelete(table.EmpId)" icon="pi pi-trash "></button></td>  
+        </tr>
+    </ng-template>
+</p-table><br> 
+</div>
+       
+
+<div class="col-4 justify-content-center">
+    <form class="form" [formGroup]="Form" >
+        
+        <div>
+            <label>EmpId:</label><br>
+            <input type="text" pInputText formControlName="EmpId" placeholder="ID"/><br>
+            <span style="color:red;"
+                *ngIf="Form.controls.EmpId.invalid && Form.controls.EmpId.touched && this.Form.controls.EmpId.errors?.required">required!</span>
+        </div>
+
+        <div>
+            <label>EmpName:</label><br>
+            <input type="text" pInputText formControlName="EmpName" placeholder="Full Name" /><br>
+            <span
+                *ngIf="Form.controls['EmpName'].invalid && Form.controls['EmpName'].touched && this.Form.controls.EmpName.errors?.required "
+                style="color: red;">required!</span>
+            <span style="color: red;" *ngIf="this.Form.controls.EmpName.errors?.pattern">Enter Alphabets Only</span>
+        </div>
+
+        <div>
+            <label>EmpDepartment:</label><br>
+            <input type="text" pInputText formControlName="EmpDepartment" placeholder="Department"/><br>
+            <span
+                *ngIf="Form.controls['EmpDepartment'].invalid && Form.controls['EmpDepartment'].touched && this.Form.controls.EmpDepartment.errors?.required "
+                style="color: red;">required!</span>
+            <span style="color: red;" *ngIf="this.Form.controls.EmpDepartment.errors?.pattern">Enter Alphabets
+                Only</span>
+        </div>
+
+        <div>
+            <label>EmpMobileNo:</label><br>
+            <input type="text" pInputText formControlName="EmpMobileNo" placeholder="MobileNumber"/><br>
+            <span style="color:red;"
+                *ngIf="Form.controls.EmpMobileNo.invalid && Form.controls.EmpMobileNo.touched && Form.controls.EmpMobileNo.errors?.required">required!</span>
+            <span style="color: red;" *ngIf="this.Form.controls.EmpMobileNo.errors?.pattern">Enter 10 digit
+                number</span>
+        </div><br>
+        <button class="b1" pButton type="button" label="Submit"  (click)="postempdetails()"></button><br><br>
+        <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    </form>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="card"> -->
+<p-dialog header="Update" [(visible)]="display" >
+ 
+        <form class="form1"  [formGroup]="Form1">
+            <div>
+                <label>Employee Id :</label><br>
+                <input type="text" readonly formControlName="EmpId" pInputText /><br>
+            </div>
+
+            <div>
+                <label>Employee Name : </label><br>
+                <input type="text" formControlName="EmpName" pInputText /><br>
+                <span
+                    *ngIf="Form1.controls['EmpName'].invalid && Form1.controls['EmpName'].touched && this.Form1.controls.EmpName.errors?.required "
+                    style="color: red;">required!</span>
+                <span style="color: red;" *ngIf="this.Form1.controls.EmpName.errors?.pattern">Enter Alphabets Only</span>
+            </div>
+
+
+            <div>
+                <label> Employee Department :</label><br>
+                <input type="text" formControlName="EmpDepartment" pInputText /><br>
+        <span  style="color: red;" *ngIf="Form1.controls['EmpDepartment'].invalid && Form1.controls['EmpDepartment'].touched && this.Form1.controls.EmpDepartment.errors?.required ">required!</span>
+        <span style="color: red;" *ngIf="this.Form1.controls.EmpDepartment.errors?.pattern">Enter Alphabets Only</span>
+            </div>
+  <div>
+            <label>EmpMobileNo: </label> <br>
+            <input type="text" formControlName="EmpMobileNo" pInputText /><br>
+               <span  style="color: red;" *ngIf="Form1.controls['EmpMobileNo'].invalid && Form1.controls['EmpMobileNo'].touched && this.Form1.controls.EmpMobileNo.errors?.required ">required!</span>
+        <span style="color: red;" *ngIf="this.Form1.controls.EmpMobileNo.errors?.pattern">Enter 10 digit number</span>     
+            </div><br>
+            <!-- <button class="b2" pButton type="button" (click)="updateEmp()" label="save"></button> -->
+            <button class="b2" type="button" pButton  (click)="updateEmp()" label="save"></button>
+            <p-messages [(value)]="msgs2" [enableService]="false"></p-messages>
+        </form>
+    
+</p-dialog>
+<!-- </div> -->
+
+<!-- <div *ngIf="show">
+    <p-button class="button" (click)="showdialog()" label=Add icon="pi pi-plus"></p-button>
+</div>
+<div *ngIf="!show">
+    <p-button (click)="showdialog()" label=back icon="pi pi-arrow-left"></p-button>
+</div> -->
+
+<a href="javascript:void(0);" #downloadexcelref></a>
+
+<p-messages [(value)]="msgs3" [enableService]="false"></p-messages>
+<p-messages [(value)]="msgs4" [enableService]="false"></p-messages>
+
+
+
+
+
+
+
+
+
+
+
+   <!-- <div style="text-align: right">        
+        <i class="pi pi-search" style="margin:4px 4px 0 0"></i>
+        <input type="text" pInputText size="50"  placeholder="Global Filter" (input)="search()"  style= "width: 200px;">
+        <!-- (input)="dt.filterGlobal($event.target.value, 'contains')" -->
+    <!-- </div> --> 
+    

@@ -1,0 +1,16 @@
+<p>fileupload works!</p>
+
+<!-- <p-fileUpload name="File" url="./upload.php" multiple="multiple"></p-fileUpload> -->
+
+ <p-fileUpload #fileUpload name="File" (change)="select($event)" url="http://172.17.12.111:3456/file/post"></p-fileUpload> 
+ <p-messages [(value)]="uploadedFiles" [enableService]="false"></p-messages><br>
+ <!-- <p-fileUpload #fileUpload name="File" (change)="upload($event)" url=" http://172.17.12.99:8552/postdata"></p-fileUpload>  -->
+
+<div class="p-col-12 p-md-12 p-sm-12 p-lg-3">
+  <button pButton type="button" icon="pi pi-download" label="Download FIle"  (click)="DownloadFile()"></button>
+  
+</div>
+
+  <!-- <a  (click)="DownloadFile()" c style='cursor: pointer;' class="nav-link" target="_blank">
+      <i class="nc-icon nc-basket"></i> Download
+  </a> -->

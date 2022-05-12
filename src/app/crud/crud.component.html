@@ -1,0 +1,70 @@
+<p>crud works!</p>
+
+
+<form [formGroup]="loginForm" >
+
+<div>
+<label >Name:</label><br>
+<input type="text"  pInputText formControlName="Name" />
+<span style="color: red;" *ngIf="loginForm.controls.Name.invalid && loginForm.controls.Name.touched && this.loginForm.controls.Name.errors?.required">required!</span>
+
+</div>
+
+<div>
+<label >Email:</label><br>
+<input type="text" pInputText formControlName="Email"/>
+<span style="color: red;" *ngIf="loginForm.controls.Email.invalid && loginForm.controls.Email.touched && this.loginForm.controls.Email.errors?.required">required!</span>
+
+</div>
+
+
+<div>
+<label >Phone_number:</label><br>
+<input type="text"  pInputText formControlName="Phone_number" />
+<span style="color: red;" *ngIf="loginForm.controls.Phone_number.invalid && loginForm.controls.Phone_number.touched && this.loginForm.controls.Phone_number.errors?.required">required!</span>
+</div>
+
+<div>
+    <label >Password:</label><br>
+    <input type="password"   pInputText formControlName="Password"  />
+    <span style="color: red;" *ngIf="loginForm.controls.Password.invalid && loginForm.controls.Password.touched && this.loginForm.controls.Password.errors?.required">required!</span>
+</div>
+
+    <div>
+        <label>Confirm password:</label><br>
+        <input type="password"   pInputText formControlName="Confirm_password" />
+        <span style="color: red;" *ngIf="loginForm.controls.Confirm_password.invalid && loginForm.controls.Confirm_password.touched && this.loginForm.controls.Confirm_password.errors?.required">required!</span>
+    </div>
+
+<div>
+    <button pButton type="button" label="Click"  [disabled]="!loginForm.valid" (click)="onsubmit()"></button>
+</div>
+</form>
+
+<p-dialog header="Title" [(visible)]="display">
+    <p>hellodewfrwefrwe</p>
+</p-dialog>
+
+<button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button>
+
+
+
+<!-- <p-table [value]="list" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Firstname</th>
+            <!-- <th>Lastname</th>
+            <th>Phone_number</th>
+            <th>Password</th> -->
+        <!-- </tr>
+    </ng-template>
+    <ng-template pTemplate="body" >
+        <tr>
+            <td>{{list.Firstname}}</td> -->
+             <!-- <td>{{lName}}</td> 
+            <td>{{phone}}</td>
+            <td>{{password}}</td> -->
+        <!-- </tr>
+    </ng-template>
+   
+</p-table>  --> 
