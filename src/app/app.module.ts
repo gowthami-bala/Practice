@@ -24,6 +24,7 @@ import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import { TabViewModule } from 'primeng/tabview';
 import {StyleClassModule} from 'primeng/styleclass';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import {StyleClassModule} from 'primeng/styleclass';
     ParentComponent,
     CrudComponent,
     FileuploadComponent,
-    Crud1Component
+    Crud1Component,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

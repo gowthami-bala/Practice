@@ -1,6 +1,27 @@
 <p>crud works!</p>
 
+<div class="topnav">
+    <a class="active" href="crud1">Home</a>&nbsp;
+    <a href="child">News</a>&nbsp;
+    <a href="parent">Contact</a>&nbsp;
+    <a href="#about">About</a>
+  </div><br>
+  <div>
+  <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category">
 
+  <ul id="myMenu">
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+    <li><a href="#">PHP</a></li>
+    <li><a href="#">Python</a></li>
+    <li><a href="#">jQuery</a></li>
+    <li><a href="#">SQL</a></li>
+    <li><a href="#">Bootstrap</a></li>
+    <li><a href="#">Node.js</a></li>
+  </ul>
+  
+  <div class="form" >
 <form [formGroup]="loginForm" >
 
 <div>
@@ -8,44 +29,57 @@
 <input type="text"  pInputText formControlName="Name" />
 <span style="color: red;" *ngIf="loginForm.controls.Name.invalid && loginForm.controls.Name.touched && this.loginForm.controls.Name.errors?.required">required!</span>
 
-</div>
+</div><br>
 
 <div>
 <label >Email:</label><br>
 <input type="text" pInputText formControlName="Email"/>
 <span style="color: red;" *ngIf="loginForm.controls.Email.invalid && loginForm.controls.Email.touched && this.loginForm.controls.Email.errors?.required">required!</span>
-
-</div>
+</div><br>
 
 
 <div>
 <label >Phone_number:</label><br>
 <input type="text"  pInputText formControlName="Phone_number" />
 <span style="color: red;" *ngIf="loginForm.controls.Phone_number.invalid && loginForm.controls.Phone_number.touched && this.loginForm.controls.Phone_number.errors?.required">required!</span>
-</div>
+</div><br>
+
+<!-- <div>
+    <label >gender:</label><br>
+    <input type="radio"   pInputText formControlName="Password"  />
+    <!-- <span style="color: red;" *ngIf="loginForm.controls.Password.invalid && loginForm.controls.Password.touched && this.loginForm.controls.Password.errors?.required">required!</span> -->
+<!-- </div> --> 
+<!-- 
+<div>
+    <label >gender:</label><br>
+    <input type="radio"   pInputText formControlName="Password"  />
+    <!-- <span style="color: red;" *ngIf="loginForm.controls.Password.invalid && loginForm.controls.Password.touched && this.loginForm.controls.Password.errors?.required">required!</span> -->
+<!-- </div> --> 
 
 <div>
     <label >Password:</label><br>
     <input type="password"   pInputText formControlName="Password"  />
     <span style="color: red;" *ngIf="loginForm.controls.Password.invalid && loginForm.controls.Password.touched && this.loginForm.controls.Password.errors?.required">required!</span>
-</div>
+</div><br>
 
     <div>
         <label>Confirm password:</label><br>
         <input type="password"   pInputText formControlName="Confirm_password" />
         <span style="color: red;" *ngIf="loginForm.controls.Confirm_password.invalid && loginForm.controls.Confirm_password.touched && this.loginForm.controls.Confirm_password.errors?.required">required!</span>
-    </div>
+    </div><br>
 
 <div>
-    <button pButton type="button" label="Click"  [disabled]="!loginForm.valid" (click)="onsubmit()"></button>
+    <button pButton type="button" label="submit"  (click)="onsubmit()"></button>
 </div>
 </form>
-
+</div>
+</div>
+<!-- 
 <p-dialog header="Title" [(visible)]="display">
     <p>hellodewfrwefrwe</p>
-</p-dialog>
+</p-dialog> -->
 
-<button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button>
+<!-- <button type="button" (click)="showDialog()" icon="pi pi-info-circle" label="Show"></button> -->
 
 
 

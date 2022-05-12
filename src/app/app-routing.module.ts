@@ -5,6 +5,7 @@ import { ChildComponent } from './child/child.component';
 import { CrudComponent } from './crud/crud.component';
 import { Crud1Component } from './crud1/crud1.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ParentComponent } from './parent/parent.component';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'crud',component:CrudComponent},
   {path:'parent',component:ParentComponent},
   {path:'upload',component:FileuploadComponent},
-  {path:'crud1', component:Crud1Component}
+  {path:'crud1', component:Crud1Component},
+  {path:'**',component:PagenotfoundComponent}
 ];
 
 @NgModule({
