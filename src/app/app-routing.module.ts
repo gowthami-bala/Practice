@@ -7,6 +7,8 @@ import { Crud1Component } from './crud1/crud1.component';
 import { FileuploadComponent } from './fileupload/fileupload.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ParentComponent } from './parent/parent.component';
+import { PracticeComponent } from './practice/practice.component';
+import { Practice1Component } from './practice1/practice1.component';
 
 const routes: Routes = [
   {path:'child',component:ChildComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path:'parent',component:ParentComponent},
   {path:'upload',component:FileuploadComponent},
   {path:'crud1', component:Crud1Component},
+  {path:'practice',component:PracticeComponent},
+  {path:'practice1',component:Practice1Component},
   {path:'**',component:PagenotfoundComponent}
 ];
 

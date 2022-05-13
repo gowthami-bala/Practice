@@ -24,7 +24,13 @@ import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import { TabViewModule } from 'primeng/tabview';
 import {StyleClassModule} from 'primeng/styleclass';
+import {ScrollPanelModule} from 'primeng/scrollpanel';
+import {PanelModule} from 'primeng/panel';
+
+
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PracticeComponent } from './practice/practice.component';
+import { Practice1Component } from './practice1/practice1.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +39,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     CrudComponent,
     FileuploadComponent,
     Crud1Component,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    PracticeComponent,
+    Practice1Component
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,11 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     MessagesModule,
     MessageModule,
     ToastModule,
-    TabViewModule
+    TabViewModule,
+    ScrollPanelModule,
+    PanelModule,
+   
+    
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

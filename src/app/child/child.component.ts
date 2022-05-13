@@ -9,7 +9,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 export class ChildComponent implements OnInit {
 
   Form = new FormGroup({
-    Firstname: new FormControl('', [Validators.required, Validators.pattern('^[sa-zA-Z]*$')]),
+     Firstname: new FormControl('', [Validators.required, Validators.pattern('^[sa-zA-Z]*$')]),
     Lastname: new FormControl('', [Validators.required, Validators.pattern('^[sa-zA-Z]*$')]),
     Phone_number: new FormControl('', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     password: new FormControl('', [Validators.required,Validators.minLength(8)]),

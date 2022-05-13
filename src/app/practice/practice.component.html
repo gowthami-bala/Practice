@@ -1,0 +1,39 @@
+<p>practice works!</p>
+
+
+<div class="grid">
+    <div class="col-6">
+    <div  class="scrollable" (mouseenter)="updateCurrentElement('scrollOne')" (scroll)="updateVerticalScroll($event)" #scrollOne>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    </div>
+</div>
+<div class="col-6">
+<div fxLayout="row">
+    <div class="scrollable" (mouseenter)="updateCurrentElement('scrollTwo')" (scroll)="updateVerticalScroll($event)" #scrollTwo>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    <p>Content</p>
+    </div>
+    </div>
+    </div>
+</div>
